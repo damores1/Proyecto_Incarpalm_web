@@ -5,7 +5,7 @@
 - **Nombre:** David Alexis Amores Moya
 - **Carrera:** Tecnología en Transformación Digital de Empresas
 - **Asignatura / actividad:** Taller de desarrollo de aplicación web con React y Next.js
-- **Repositorio:** Agregar aquí el enlace del repositorio de GitHub cuando sea publicado.
+
 
 ## Información de la empresa
 
