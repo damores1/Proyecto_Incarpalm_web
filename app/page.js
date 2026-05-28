@@ -8,7 +8,7 @@ export default function Home() {
       <section className="hero">
         <div className="container hero-grid">
           <div>
-            <span className="badge">Prácticum 3 · Transformación Digital</span>
+            <span className="badge">Prácticum 4 · Transformación Digital</span>
             <h1>Aplicación web para pedidos, clientes y logística de salida</h1>
             <p>
               Esta propuesta digitaliza capacidades clave de INCARPALM S.A., especialmente la gestión de pedidos,
