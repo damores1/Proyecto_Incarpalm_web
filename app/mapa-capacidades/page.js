@@ -7,7 +7,7 @@ export default function MapaCapacidades() {
       <span className="badge">Arquitectura empresarial · INCARPALM S.A.</span>
       <h1 className="page-title">Mapa de capacidades operativo</h1>
       <p className="lead">
-        Esta vista representa el mapa de capacidades definido en el Practicum 3. El flujo conecta la gestión de pedidos
+        Esta vista representa el mapa de capacidades definido en el Practicum 4. El flujo conecta la gestión de pedidos
         con planificación, producción, inventarios y logística de entregas.
       </p>
 
