@@ -2,37 +2,89 @@
 
 ## Información del estudiante
 
-**Nombre:** David Amores  
-**Carrera:** Tecnología Superior en Transformación Digital de Empresas  
+**Nombre:** David Amores
+
+**Carrera:** Tecnología Superior en Transformación Digital de Empresas
+
 **Universidad:** Universidad Técnica Particular de Loja (UTPL)
 
 ---
 
-# Empresa
+# Información de la empresa
 
 ## INCARPALM S.A.
 
-INCARPALM S.A. es una empresa del sector manufacturero dedicada a la fabricación de cajas de cartón corrugado para diferentes sectores comerciales e industriales.
-
-El presente proyecto desarrolla una propuesta de transformación digital enfocada en la gestión de pedidos, producción y logística de salida, tomando como referencia el mapa de capacidades desarrollado durante el Prácticum.
+INCARPALM S.A. es una empresa del sector manufacturero dedicada a la fabricación de cajas de cartón corrugado para diferentes sectores comerciales e industriales. La empresa busca fortalecer sus procesos mediante iniciativas de transformación digital que permitan mejorar la gestión de pedidos, la planificación de la producción y la logística de salida.
 
 ---
 
-# Descripción de la aplicación
+# Descripción del proyecto
 
-La aplicación permite gestionar el proceso de registro y consulta de pedidos de cajas de cartón mediante una arquitectura cliente-servidor.
+Este proyecto fue desarrollado como parte del Prácticum y tiene como objetivo implementar una aplicación web que represente el mapa de capacidades definido para INCARPALM S.A.
 
-El sistema fue desarrollado utilizando React para el frontend y Spring Boot para el backend, implementando una API REST conectada a una base de datos MySQL.
+La solución permite gestionar pedidos de cajas de cartón mediante una arquitectura cliente-servidor utilizando React para el frontend, Spring Boot para el backend y MySQL como base de datos.
+
+La aplicación demuestra el funcionamiento de una API REST integrada con una interfaz web, permitiendo la persistencia de la información y el intercambio de datos entre los diferentes componentes del sistema.
 
 ---
 
-# Funcionalidades
+# Objetivo de la aplicación
 
-- Registro de pedidos.
+Desarrollar una aplicación web que permita registrar y gestionar pedidos de cajas de cartón, apoyando el proceso de transformación digital de INCARPALM S.A. mediante una solución basada en React, Spring Boot y MySQL.
+
+---
+
+# Mapa de capacidades implementado
+
+La aplicación representa las principales capacidades identificadas durante el Prácticum:
+
+- Gestión de pedidos
+- Planificación de producción
+- Producción
+- Control de calidad
+- Gestión de inventario
+- Logística de salida
+- Confirmación de entrega
+
+Estas capacidades se encuentran reflejadas dentro del flujo de trabajo implementado en la aplicación.
+
+---
+
+# Información de la aplicación
+
+La aplicación permite administrar el proceso de registro y seguimiento de pedidos de cajas de cartón.
+
+Entre sus principales funcionalidades se encuentran:
+
+- Registro de nuevos pedidos.
 - Consulta de pedidos registrados.
 - Eliminación de pedidos.
-- Persistencia de la información en MySQL.
-- Integración Frontend (React) y Backend (Spring Boot).
+- Persistencia de la información en una base de datos MySQL.
+- Comunicación entre el frontend y el backend mediante servicios REST.
+- Visualización del flujo del proceso de pedidos basado en el mapa de capacidades.
+
+---
+
+# Arquitectura tecnológica
+
+La solución implementa una arquitectura de tres capas:
+
+**Capa de presentación**
+
+- React
+- Next.js
+
+**Capa de negocio**
+
+- Spring Boot
+- Java
+- Spring Data JPA
+
+**Capa de datos**
+
+- MySQL
+
+La comunicación entre React y Spring Boot se realiza mediante servicios REST utilizando el protocolo HTTP y el formato JSON.
 
 ---
 
@@ -43,12 +95,15 @@ El sistema fue desarrollado utilizando React para el frontend y Spring Boot para
 - React
 - Next.js
 - JavaScript
+- HTML5
+- CSS3
 
 ## Backend
 
 - Java
 - Spring Boot
 - Spring Data JPA
+- Maven
 
 ## Base de datos
 
@@ -57,74 +112,85 @@ El sistema fue desarrollado utilizando React para el frontend y Spring Boot para
 ## Herramientas
 
 - Visual Studio Code
-- Maven
 - Git
 - GitHub
 - MySQL Workbench
 
 ---
 
-# Mapa de capacidades implementado
+# Estructura del proyecto
 
-La aplicación representa las capacidades principales definidas durante el Prácticum:
+```
+Proyecto_Incarpalm_web/
 
-- Gestión de pedidos
-- Planificación de producción
-- Producción
-- Control de calidad
-- Gestión de inventario
-- Logística de salida
-- Confirmación de entrega
-
-Estas capacidades se reflejan en el flujo de pedidos implementado dentro de la aplicación.
+│
+├── app/                     → Frontend desarrollado en React (Next.js)
+├── components/              → Componentes reutilizables
+├── data/                    → Información utilizada por la aplicación
+├── public/                  → Recursos estáticos
+├── incarpalm-api/           → Backend desarrollado en Spring Boot
+├── package.json
+└── README.md
+```
 
 ---
 
-# Arquitectura
+# Requisitos previos
 
-Frontend (React / Next.js)
+Antes de ejecutar la aplicación es necesario tener instalado:
 
-↓
-
-API REST (Spring Boot)
-
-↓
-
-Spring Data JPA
-
-↓
-
-MySQL
+- Java JDK 21 o superior
+- Node.js
+- Maven
+- MySQL Server
+- Git
+- Visual Studio Code (opcional)
 
 ---
 
 # Instalación
 
-## Clonar el repositorio
+## 1. Clonar el repositorio
 
 ```bash
 git clone https://github.com/damores1/Proyecto_Incarpalm_web.git
 ```
 
-## Frontend
+Ingresar al proyecto:
 
 ```bash
-npm install
-
-npm run dev
-```
-
-El frontend estará disponible en:
-
-```
-http://localhost:3000
+cd Proyecto_Incarpalm_web
 ```
 
 ---
 
-## Backend
+## 2. Configurar la base de datos
 
-Ingresar a la carpeta:
+Crear una base de datos en MySQL llamada:
+
+```
+incarpalm_db
+```
+
+Verificar los datos de conexión en el archivo:
+
+```
+incarpalm-api/src/main/resources/application.properties
+```
+
+Ejemplo:
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/incarpalm_db
+spring.datasource.username=root
+spring.datasource.password=TU_CONTRASEÑA
+```
+
+---
+
+## 3. Ejecutar el Backend
+
+Ingresar a la carpeta del backend:
 
 ```bash
 cd incarpalm-api
@@ -144,25 +210,57 @@ http://localhost:8080/api/pedidos
 
 ---
 
-## Base de datos
+## 4. Ejecutar el Frontend
 
-Crear una base de datos llamada:
+Abrir una nueva terminal y ubicarse en la carpeta principal del proyecto.
 
-```
-incarpalm_db
-```
+Instalar las dependencias:
 
-Configurar el archivo:
-
-```
-application.properties
+```bash
+npm install
 ```
 
-con los datos de conexión de MySQL.
+Ejecutar la aplicación:
+
+```bash
+npm run dev
+```
+
+Abrir el navegador en:
+
+```
+http://localhost:3000
+```
 
 ---
 
-# Flujo del sistema
+# Uso de la aplicación
+
+1. Iniciar el backend mediante Spring Boot.
+
+2. Iniciar el frontend con Next.js.
+
+3. Acceder desde el navegador a:
+
+```
+http://localhost:3000
+```
+
+4. Registrar un nuevo pedido indicando:
+
+- Cliente
+- Tipo de caja
+- Cantidad
+
+5. Visualizar los pedidos registrados.
+
+6. Eliminar pedidos cuando sea necesario.
+
+Toda la información registrada se almacena en la base de datos MySQL mediante la API REST desarrollada en Spring Boot.
+
+---
+
+# Flujo del proceso
 
 Cliente
 
@@ -172,7 +270,11 @@ Registro del pedido
 
 ↓
 
-Validación
+Validación del pedido
+
+↓
+
+Planificación de producción
 
 ↓
 
@@ -196,10 +298,20 @@ Entrega al cliente
 
 ---
 
+# Repositorio
+
+Repositorio del proyecto:
+
+**https://github.com/damores1/Proyecto_Incarpalm_web**
+
+---
+
 # Autor
 
-David Amores
+**David Amores**
 
-Universidad Técnica Particular de Loja
+Tecnología Superior en Transformación Digital de Empresas
+
+Universidad Técnica Particular de Loja (UTPL)
 
 2026
