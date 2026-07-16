@@ -75,6 +75,25 @@ export default function Procesos() {
     }
   }
 
+  async function eliminarPedido(id) {
+
+    const confirmar = confirm("¿Está seguro de eliminar este pedido?");
+
+    if (!confirmar) return;
+
+    const respuesta = await fetch(`http://localhost:8080/api/pedidos/${id}`, {
+      method: "DELETE"
+    });
+
+    if (respuesta.ok) {
+      cargarPedidos();
+      alert("Pedido eliminado correctamente.");
+    } else {
+      alert("No fue posible eliminar el pedido.");
+    }
+
+  }
+
   return (
     <main className="section container">
 
@@ -94,7 +113,7 @@ export default function Procesos() {
 
         <h2>Registrar Pedido</h2>
 
-        <div style={{maxWidth:"500px"}}>
+        <div style={{ maxWidth: "500px" }}>
 
           <label>Cliente</label>
 
@@ -102,25 +121,25 @@ export default function Procesos() {
             className="input"
             type="text"
             value={nuevoPedido.cliente}
-            onChange={(e)=>
+            onChange={(e) =>
               setNuevoPedido({
                 ...nuevoPedido,
-                cliente:e.target.value
+                cliente: e.target.value
               })
             }
           />
 
-          <br/><br/>
+          <br /><br />
 
           <label>Tipo de caja</label>
 
           <select
             className="input"
             value={nuevoPedido.tipoCaja}
-            onChange={(e)=>
+            onChange={(e) =>
               setNuevoPedido({
                 ...nuevoPedido,
-                tipoCaja:e.target.value
+                tipoCaja: e.target.value
               })
             }
           >
@@ -132,7 +151,7 @@ export default function Procesos() {
             <option>Caja personalizada</option>
           </select>
 
-          <br/><br/>
+          <br /><br />
 
           <label>Cantidad</label>
 
@@ -140,15 +159,15 @@ export default function Procesos() {
             className="input"
             type="number"
             value={nuevoPedido.cantidad}
-            onChange={(e)=>
+            onChange={(e) =>
               setNuevoPedido({
                 ...nuevoPedido,
-                cantidad:e.target.value
+                cantidad: e.target.value
               })
             }
           />
 
-          <br/><br/>
+          <br /><br />
 
           <button
             className="btn btn-primary"
@@ -162,9 +181,9 @@ export default function Procesos() {
       </section>
 
       <div className="timeline">
-        {flujoPedido.map((paso,index)=>(
+        {flujoPedido.map((paso, index) => (
           <div className="step" key={paso}>
-            <strong>{index+1}. {paso}</strong>
+            <strong>{index + 1}. {paso}</strong>
             <p>{descripciones[index]}</p>
           </div>
         ))}
@@ -184,19 +203,29 @@ export default function Procesos() {
               <th>Tipo de caja</th>
               <th>Cantidad</th>
               <th>Estado</th>
+              <th>Acciones</th>
             </tr>
 
           </thead>
 
           <tbody>
 
-            {pedidos.map((pedido)=>(
+            {pedidos.map((pedido) => (
               <tr key={pedido.id}>
                 <td>{pedido.id}</td>
                 <td>{pedido.cliente}</td>
                 <td>{pedido.tipoCaja}</td>
                 <td>{pedido.cantidad}</td>
                 <td>{pedido.estado}</td>
+
+                <td>
+                  <button
+                    onClick={() => eliminarPedido(pedido.id)}
+                  >
+                    🗑️ Eliminar
+                  </button>
+                </td>
+
               </tr>
             ))}
 
